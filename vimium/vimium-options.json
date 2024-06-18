@@ -1,0 +1,30 @@
+{
+  "keyMappings": "map ç LinkHints.activateMode\nunmap f\nmap Ç openCopiedUrlInNewTab\nunmap F\nmap { scrollPageUp\nmap } scrollPageDown\nunmap t\nmap t Vomnibar.activateTabSelection\nunmap T\nmap T createTab\nunmap m",
+  "linkHintCharacters": "qwertyuiop",
+  "smoothScroll": false,
+  "searchEngines": "wk: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n\nyt: https://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google maps\naz: https://www.amazon.com.br/s/?field-keywords=%s Amazon\nscry: https://scryfall.com/search?q=%s Scryfall\nliga: https://www.ligamagic.com.br/?view=cards%2Fsearch&card=%s LigaMagic\ntt: https://twitter.com/search?q=%s Twitter",
+  "settingsVersion": "2.1.1",
+  "userDefinedLinkHintCss": "/* -------- HINTS -------- */\n#vimiumHintMarkerContainer div.internalVimiumHintMarker, #vimiumHintMarkerContainer div.vimiumHintMarker {\n  background: #282828;\n  border: 1px solid #DCDCCC;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  padding: 3px 4px;\n}\n\n#vimiumHintMarkerContainer div span {\n  color: #f0dfaf;\n  font-family: JetBrainsMono Nerd Font;\n  font-size: 20;\n  font-weight: bold;\n  text-shadow: none;\n}\n\n#vimiumHintMarkerContainer div > .matchingCharacter {\n  opacity: 0.3;\n}\n\n#vimiumHintMarkerContainer div > .matchingCharacter ~ span {\n  color: #83a598;\n}\n\n/* -------- VOMNIBAR -------- */\n#vomnibar {\n  background: #282828;\n  border: none;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n}\n\n#vomnibar .vomnibarSearchArea,\n#vomnibar input {\n  background: transparent;\n  border: none;\n  box-shadow: none;\n  color: #ebdbb2;\n  font-family: JetBrainMono Nerd Font;\n  font-size: 13;\n  font-weight: normal;\n}\n\n#vomnibar .vomnibarSearchArea {\n  padding: 2px 30px;\n}\n\n#vomnibar input {\n  padding: 2px}\n\n#vomnibar ul {\n  background: #282828;\n  border-top: 1px solid #3c3836;\n  margin: 0;\n  padding: 2px;\n}\n\n#vomnibar li {\n  border-bottom: 1px solid #3c3836;\n  padding: 2px;\n}\n\n#vomnibar li .vomnibarTopHalf,\n#vomnibar li .vomnibarBottomHalf {\n  padding: 2px 0;\n}\n\n#vomnibar li .vomnibarSource {\n  color: #83a598;\n  font-family: JetBrainsMono Nerd Font;\n  font-size: 13;\n  font-weight: normal;\n}\n\n#vomnibar li em,\n#vomnibar li .vomnibarTitle {\n  color: #83a598;\n  font-family: JetBrainsMono Nerd Font;\n  font-size: 13;\n  font-weight: normal;\n}\n\n#vomnibar li .vomnibarUrl {\n  color: #ebdbb2;\n  font-family: JetBrainsMono Nerd Font;\n  font-size: 13;\n  font-weight: normal;\n}\n\n#vomnibar li .vomnibarMatch {\n  color: #b8bb26;\n  font-weight: normal;\n}\n\n#vomnibar li .vomnibarTitle .vomnibarMatch {\n  color: #83a598;\n}\n\n#vomnibar li.vomnibarSelected {\n  background-color: #3c3836;\n}\n\n/* -------- HUD -------- */\ndiv.vimiumHUD {\n  background: #282828;\n  border: 1px solid #3c3836;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n}\n\ndiv.vimiumHUD span#hud-find-input,\ndiv.vimiumHUD .vimiumHUDSearchAreaInner {\n  color: #ebdbb2;\n  font-family: JetBrainsMono Nerd Font;\n  font-size: 13;\n  font-weight: normal;\n}\n\ndiv.vimiumHUD .hud-find {\n  background-color: transparent;\n  border: none;\n}\ndiv.vimiumHUD {\n  width: auto;\n  left: 207px;\n}\ndiv.vimiumHUD .vimiumHUDSearchArea {\n  background-color: transparent;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "k",
+      "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "j",
+      "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "l",
+      "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "m",
+      "pattern": "https?://www.twitch.tv/*"
+    },
+    {
+      "passKeys": "t",
+      "pattern": "https?://www.youtube.com/*"
+    }
+  ]
+}
