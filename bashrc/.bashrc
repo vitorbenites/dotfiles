@@ -31,7 +31,7 @@ alias ala='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias ilua='vifm ~/.config/nvim/'
 alias wiki='wikiscript.sh'
 alias tl='$EDITOR .'
-alias chr='google-chrome-stable'
+alias chrome='google-chrome-stable'
 alias homeserver='ssh home'
 alias homeftp='sftp -oPort=2222 vitor@192.168.1.50'
 alias fman='compgen -c | fzf | xargs man'
@@ -65,5 +65,8 @@ _fzf_compgen_dir(){
 	fd --type=d --hidden . "$1"
 }
 
+umask 022
+
 # Starship
 eval "$(starship init bash)"
+
