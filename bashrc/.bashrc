@@ -65,8 +65,6 @@ _fzf_compgen_dir(){
 	fd --type=d --hidden . "$1"
 }
 
-umask 022
-
 # Starship
 eval "$(starship init bash)"
 
