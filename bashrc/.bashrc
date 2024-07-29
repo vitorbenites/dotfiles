@@ -1,9 +1,8 @@
 # Bashrc do Vitin
 # Copia sim comédia
 # Variável PATH
-GOPATH=$HOME/go
-export GOPATH
-PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script:$GOPATH/bin
+export GOPATH=$HOME/go
+PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script
 
 # Variável de ambiente do editor
 export EDITOR="/usr/bin/nvim"
@@ -39,6 +38,7 @@ alias ftldr='compgen -c | fzf | xargs tldr'
 alias zat='zathura'
 alias ufms='vifm ~/Documentos/SI/SISTINF_5/'
 alias calendario='dialog --calendar "Calendário" 0 0 $(date +%d) $(date +%m) $(date +%Y); clear; fastfetch'
+alias pipes='pipes.sh'
 
 # Executar o tmux ao iniciar o terminal (não abrir um novo painel)
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then

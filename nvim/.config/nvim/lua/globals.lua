@@ -77,7 +77,7 @@ vim.o.completeopt = "menuone,noselect"
 
 -- Mostrar whitespaces
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = " »", trail = "·", nbsp = "␣", eol = "↵" }
 
 vim.loader.enable()
 
