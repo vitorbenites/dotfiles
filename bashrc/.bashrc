@@ -3,6 +3,7 @@
 # Variável PATH
 export GOPATH=$HOME/go
 PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script
+PATH=$PATH:$GOPATH/bin
 
 # Variável de ambiente do editor
 export EDITOR="/usr/bin/nvim"
@@ -47,7 +48,6 @@ fi
 
 # Fastfetch pelo estilo
 fastfetch
-
 
 # Haskell
 [ -f "/home/vitor/.ghcup/env" ] && source "/home/vitor/.ghcup/env" # ghcup-env
