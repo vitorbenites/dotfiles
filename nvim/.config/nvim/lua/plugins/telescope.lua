@@ -26,9 +26,9 @@ return {
 
 			require("telescope").setup({
 				defaults = {
-					layout_strategy = "vertical",
+					layout_strategy = "horizontal",
 					layout_config = {
-						mirror = true,
+						mirror = false,
 						horizontal = {
 							prompt_position = "top",
 							preview_cutoff = 0,
