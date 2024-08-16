@@ -68,3 +68,4 @@ _fzf_compgen_dir(){
 # Starship
 eval "$(starship init bash)"
 
+

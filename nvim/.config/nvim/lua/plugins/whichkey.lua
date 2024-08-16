@@ -2,6 +2,7 @@
 return {
 	{
 		"folke/which-key.nvim",
+		dependencies = { "echasnovski/mini.icons", version = false },
 		event = "VeryLazy",
 		init = function()
 			vim.o.timeout = true
@@ -11,99 +12,103 @@ return {
 			-- Git signs
 			local gs = package.loaded.gitsigns
 			require("which-key").setup({
-				window = {
+				win = {
 					border = "double",
-					position = "top",
+					-- position = "top",
 				},
 			})
 
 			-- Chamada do plugin para normal
-			local wk_normal = require("which-key")
-			wk_normal.register({
-				["<leader>"] = {
-					["<leader>"] = { "i", "Insert mode" },
-					["<space>"] = { "za", "Toggle fold" },
-					Q = { ":q<cr>", "Close neovim" },
-					l = { "A", "Insert mode (end)" },
-					w = { ":w<cr>", "Write file" },
-					a = { "ggVG", "Select all" },
-					q = { ":bd<cr>", "Close buffer" },
-					m = { ":marks<cr>", "Marks list" },
-					n = { "*", "Next occurrence of word" },
-					N = { "#", "Previous occurrence of word" },
-					f = {
-						f = { ":Telescope file_browser path=%:p:h select_buffer=true<CR>", "Find files" },
-						b = { require("telescope.builtin").buffers, "Find existing buffers" },
-						o = { require("telescope.builtin").oldfiles, "Find recently opened files" },
-					},
-					s = {
-						s = {
-							function()
-								require("telescope.builtin").current_buffer_fuzzy_find({
-									previewer = true,
-								})
-							end,
-							"Search in current buffer",
-						},
-						g = { require("telescope.builtin").git_files, "Search git files" },
-						f = { require("telescope.builtin").find_files, "Search files" },
-						h = { require("telescope.builtin").help_tags, "Search help" },
-						w = { require("telescope.builtin").grep_string, "Search current word" },
-						l = { require("telescope.builtin").live_grep, "Search by grep" },
-						d = { require("telescope.builtin").diagnostics, "Search diagnostics" },
-						r = { require("telescope.builtin").resume, "Search resume" },
-						b = {
-							function()
-								require("telescope.builtin").live_grep({
-									grep_open_files = true,
-									prompt_title = "Live Grep in Open Files",
-								})
-							end,
-							"Search in open buffers",
-						},
-						e = { ":LiveGrepGitRoot<cr>", "Search grep in git root" },
-						S = { require("telescope.builtin").lsp_document_symbols, "Search document symbols" },
-						k = { require("telescope.builtin").lsp_dynamic_workspace_symbols, "Search workspace symbols" },
-					},
-					G = {
-						s = { gs.stage_hunk, "git stage hunk" },
-						r = { gs.reset_hunk, "git reset hunk" },
-						S = { gs.stage_buffer, "git stage buffer" },
-						u = { gs.undo_stage_hunk, "undo stage hunk" },
-						R = { gs.reset_buffer, "git reset buffer" },
-						p = { gs.preview_hunk, "preview git hunk" },
-						b = {
-							function()
-								gs.blame_line({ full = false })
-							end,
-							"Git blame line",
-						},
-						d = { gs.diffthis, "Git diff against index" },
-						D = {
-							function()
-								gs.diffthis("~")
-							end,
-							"Git diff against last commit",
-						},
-						t = { gs.toggle_current_line_blame, "Toggle git blame line" },
-						T = { gs.toggle_deleted, "Toggle git show deleted" },
-					},
-					r = {
-						n = { vim.lsp.buf.rename, "Rename" },
-					},
-					c = {
-						a = { vim.lsp.buf.code_action, "Code Action" },
-					},
+			local wk = require("which-key")
+			wk.add({
+				mode = { "n" },
+				{ "<leader><leader>", "i", desc = "Insert mode" },
+				{ "<leader><space>", "za", desc = "Toggle fold" },
+				{ "<leader>Q", ":q<cr>", desc = "Close neovim" },
+				{ "<leader>l", "A", desc = "Insert mode (end)" },
+				{ "<leader>w", ":w<cr>", desc = "Write file" },
+				{ "<leader>a", "ggVG", desc = "Select all" },
+				{ "<leader>q", ":Bdelete<cr>", desc = "Close buffer" },
+				{ "<leader>m", ":marks<cr>", desc = "Marks list" },
+				{ "<leader>n", "*", desc = "Next occurrence of word" },
+				{ "<leader>N", "#", desc = "Previous occurrence of word" },
+				-- Leader f
+				{ "<leader>ff", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "Find files" },
+				{ "<leader>fb", require("telescope.builtin").buffers, desc = "Find existing buffers" },
+				{ "<leader>fo", require("telescope.builtin").oldfiles, desc = "Find recently opened files" },
+				-- Leader s
+				{
+					"<leader>sS",
+					function()
+						require("telescope.builtin").current_buffer_fuzzy_find({
+							previewer = true,
+						})
+					end,
+					desc = "Search in current buffer",
 				},
-				g = {
-					d = { require("telescope.builtin").lsp_definitions, "Goto definitions (telescope)" },
-					r = { require("telescope.builtin").lsp_references, "Goto references(telescope)" },
-					i = { require("telescope.builtin").lsp_implementations, "Goto implementations (telescope)" },
-					t = { require("telescope.builtin").lsp_type_definitions, "Goto type definitions" },
-					D = { vim.lsp.buf.declaration, "Goto declaration" },
+				{ "<leader>sg", require("telescope.builtin").git_files, desc = "Search git files" },
+				{ "<leader>sf", require("telescope.builtin").find_files, desc = "Search files" },
+				{ "<leader>sh", require("telescope.builtin").help_tags, desc = "Search help" },
+				{ "<leader>sw", require("telescope.builtin").grep_string, desc = "Search current word" },
+				{ "<leader>sl", require("telescope.builtin").live_grep, desc = "Search by grep" },
+				{ "<leader>sd", require("telescope.builtin").diagnostics, desc = "Search diagnostics" },
+				{ "<leader>sr", require("telescope.builtin").resume, desc = "Search resume" },
+				{
+					"<leader>sb",
+					function()
+						require("telescope.builtin").live_grep({
+							grep_open_files = true,
+							prompt_title = "Live Grep in Open Files",
+						})
+					end,
+					desc = "Search in open buffers",
 				},
-				K = { vim.lsp.buf.hover, "Hover documentation" },
-				["]c"] = {
+				{ "<leader>se", ":LiveGrepGitRoot<cr>", desc = "Search grep in git root" },
+				{ "<leader>sk", require("telescope.builtin").lsp_document_symbols, desc = "Search document symbols" },
+				{
+					"<leader>ss",
+					require("telescope.builtin").lsp_dynamic_workspace_symbols,
+					desc = "Search workspace symbols",
+				},
+				-- Leader G
+				{ "<leader>Gs", gs.stage_hunk, desc = "git stage hunk" },
+				{ "<leader>Gr", gs.reset_hunk, desc = "git reset hunk" },
+				{ "<leader>GS", gs.stage_buffer, desc = "git stage buffer" },
+				{ "<leader>Gu", gs.undo_stage_hunk, desc = "undo stage hunk" },
+				{ "<leader>GR", gs.reset_buffer, desc = "git reset buffer" },
+				{ "<leader>Gp", gs.preview_hunk, desc = "preview git hunk" },
+				{
+					"<leader>Gb",
+					function()
+						gs.blame_line({ full = false })
+					end,
+					desc = "Git blame line",
+				},
+				{ "<leader>Gd", gs.diffthis, desc = "Git diff against index" },
+				{
+					"<leader>GD",
+					function()
+						gs.diffthis("~")
+					end,
+					desc = "Git diff against last commit",
+				},
+				{ "<leader>Gt", gs.toggle_current_line_blame, desc = "Toggle git blame line" },
+				{ "<leader>GT", gs.toggle_deleted, desc = "Toggle git show deleted" },
+				-- Leader rn
+				{ "<leader>rn", vim.lsp.buf.rename, desc = "Symbol rename" },
+				{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
+				{ "<leader>t", ":NvimTreeToggle<CR>", desc = "Neovim Tree Toggle" },
+				-- Tecla G
+				{ "gd", require("telescope.builtin").lsp_definitions, desc = "Goto definitions (telescope)" },
+				{ "gr", require("telescope.builtin").lsp_references, desc = "Goto references(telescope)" },
+				{ "gi", require("telescope.builtin").lsp_implementations, desc = "Goto implementations (telescope)" },
+				{ "gt", require("telescope.builtin").lsp_type_definitions, desc = "Goto type definitions" },
+				{ "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
+				-- Tecla K
+				{ "K", vim.lsp.buf.hover, desc = "Hover documentation" },
+				-- Diff
+				{
+					"]c",
 					function()
 						if vim.wo.diff then
 							return "]c"
@@ -113,9 +118,10 @@ return {
 						end)
 						return "<Ignore>"
 					end,
-					"Jump to next hunk",
+					desc = "Jump to next hunk",
 				},
-				["[c"] = {
+				{
+					"[c",
 					function()
 						if vim.wo.diff then
 							return "[c"
@@ -125,57 +131,50 @@ return {
 						end)
 						return "<Ignore>"
 					end,
-					"Jump to previous hunk",
+					desc = "Jump to previous hunk",
 				},
-				["<C-k>"] = { vim.lsp.buf.signature_help, "Signature documentation" },
-				["<A-n>"] = { ":bn<cr>", "Buffer next" },
-				["<A-p>"] = { ":bp<cr>", "Buffer previous" },
-				["[d"] = { vim.diagnostic.goto_prev, "Previous diagnostic" },
-				["]d"] = { vim.diagnostic.goto_next, "Next diagnostic" },
-				["-"] = { "<CMD>Oil<CR>", "Open parent directory" },
-				["<A-1>"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 1" },
-				["<A-2>"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "Buffer 2" },
-				["<A-3>"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "Buffer 3" },
-				["<A-4>"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "Buffer 4" },
-				["<A-5>"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "Buffer 5" },
-				["<A-6>"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "Buffer 6" },
-				["<A-7>"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "Buffer 7" },
-				["<A-8>"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "Buffer 8" },
-				["<A-9>"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "Buffer 9" },
-			}, { mode = "n", noremap = true })
+				{ "<C-k>", vim.lsp.buf.signature_help, desc = "Signature documentation" },
+				{ "<A-n>", ":bn<cr>", desc = "Buffer next" },
+				{ "<A-p>", ":bp<cr>", desc = "Buffer previous" },
+				{ "[d", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
+				{ "]d", vim.diagnostic.goto_next, desc = "Next diagnostic" },
+				{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+				{ "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", desc = "Buffer 1" },
+				{ "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", desc = "Buffer 2" },
+				{ "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", desc = "Buffer 3" },
+				{ "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", desc = "Buffer 4" },
+				{ "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", desc = "Buffer 5" },
+				{ "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", desc = "Buffer 6" },
+				{ "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", desc = "Buffer 7" },
+				{ "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", desc = "Buffer 8" },
+				{ "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", desc = "Buffer 9" },
+			})
 
-			-- Mapeamentos para insert
-			local wk_insert = require("which-key")
-			wk_insert.register({
-				["<leader>"] = {
-					["<leader>"] = { "<esc>", "Normal mode" },
-					l = { "<esc>A", "End of line" },
-				},
-			}, { mode = "i", noremap = true })
+			wk.add({
+				mode = { "i", "v" },
+				{ "<leader><leader>", "<esc>", desc = "Normal mode" },
+				{ "<leader>l", "A", desc = "Insert mode (end)" },
+			})
 
-			-- Mapeamentos para visual
-			local wk_visual = require("which-key")
-			wk_visual.register({
-				["<leader>"] = {
-					["<leader>"] = { "<esc>", "Normal mode" },
-					G = {
-						s = {
-							function()
-								gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-							end,
-							"Git stage hunk",
-						},
-						r = {
-							function()
-								gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-							end,
-							"Git reset hunk",
-						},
-					},
+			wk.add({
+				mode = { "v" },
+				{
+					"<leader>Gs",
+					function()
+						gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+					end,
+					desc = "Git stage hunk",
 				},
-				["<C-j"] = { "<CMD>MoveBlock(1)<CR>", "Move line up" },
-				["<C-k"] = { "<CMD>MoveBlock(-1)<CR>", "Move line down" },
-			}, { mode = "v", noremap = true })
+				{
+					"<leader>Gr",
+					function()
+						gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+					end,
+					desc = "Git reset hunk",
+				},
+				{ "<C-j", "<CMD>MoveBlock(1)<CR>", desc = "Move line up" },
+				{ "<C-k", "<CMD>MoveBlock(-1)<CR>", desc = "Move line down" },
+			})
 		end,
 	},
 }
