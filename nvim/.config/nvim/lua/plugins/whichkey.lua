@@ -22,6 +22,7 @@ return {
 			local wk = require("which-key")
 			wk.add({
 				mode = { "n" },
+				-- Leader
 				{ "<leader><leader>", "i", desc = "Insert mode" },
 				{ "<leader><space>", "za", desc = "Toggle fold" },
 				{ "<leader>Q", ":q<cr>", desc = "Close neovim" },
@@ -94,9 +95,11 @@ return {
 				},
 				{ "<leader>Gt", gs.toggle_current_line_blame, desc = "Toggle git blame line" },
 				{ "<leader>GT", gs.toggle_deleted, desc = "Toggle git show deleted" },
-				-- Leader rn
+				-- Leader r
 				{ "<leader>rn", vim.lsp.buf.rename, desc = "Symbol rename" },
+				{ "<leader>rq", ":Rest run<cr>", desc = "HTTP Request" },
 				{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
+				-- Leader t
 				{ "<leader>t", ":NvimTreeToggle<CR>", desc = "Neovim Tree Toggle" },
 				-- Tecla G
 				{ "gd", require("telescope.builtin").lsp_definitions, desc = "Goto definitions (telescope)" },
@@ -153,7 +156,7 @@ return {
 			wk.add({
 				mode = { "i", "v" },
 				{ "<leader><leader>", "<esc>", desc = "Normal mode" },
-				{ "<leader>l", "A", desc = "Insert mode (end)" },
+				{ "<leader>l", "<esc>A", desc = "Insert mode (end)" },
 			})
 
 			wk.add({

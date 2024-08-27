@@ -30,9 +30,8 @@ return {
 				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
-				hls = {},
 				lua_ls = {},
-				elixirls = {},
+				jsonls = {},
 			}
 
 			-- Setup neovim lua

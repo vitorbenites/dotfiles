@@ -1,4 +1,4 @@
--- Configurações do flash nvim
+-- Configurações do flash nvim (movimentação do cursor)
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",

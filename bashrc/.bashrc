@@ -24,20 +24,16 @@ alias mx='cmatrix'
 alias tempo='curl wttr.in'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias free='free -h'
-alias ncs='ncspot'
 alias bashrc='$EDITOR ~/.bashrc'
 alias vimrc='$EDITOR ~/.vimrc'
 alias ala='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias ilua='vifm ~/.config/nvim/'
-alias wiki='wikiscript.sh'
 alias tl='$EDITOR .'
 alias chrome='google-chrome-stable'
-alias homeserver='ssh home'
-alias homeftp='sftp -oPort=2222 vitor@192.168.1.50'
 alias fman='compgen -c | fzf | xargs man'
 alias ftldr='compgen -c | fzf | xargs tldr'
 alias zat='zathura'
-alias ufms='vifm ~/Documentos/SI/SISTINF_5/'
+alias ufms='vifm ~/Documentos/SI/SISTINF_6/'
 alias calendario='dialog --calendar "Calendário" 0 0 $(date +%d) $(date +%m) $(date +%Y); clear; fastfetch'
 alias pipes='pipes.sh'
 
@@ -50,7 +46,7 @@ fi
 fastfetch
 
 # Haskell
-[ -f "/home/vitor/.ghcup/env" ] && source "/home/vitor/.ghcup/env" # ghcup-env
+# [ -f "/home/vitor/.ghcup/env" ] && source "/home/vitor/.ghcup/env" # ghcup-env
 
 eval "$(fzf --bash)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix"
@@ -67,5 +63,3 @@ _fzf_compgen_dir(){
 
 # Starship
 eval "$(starship init bash)"
-
-

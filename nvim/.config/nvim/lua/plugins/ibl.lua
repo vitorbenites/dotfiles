@@ -1,3 +1,4 @@
+-- Indent blank line mostra uma linha no nível da indentação
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
