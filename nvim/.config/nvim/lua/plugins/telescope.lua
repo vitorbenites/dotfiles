@@ -65,6 +65,9 @@ return {
 					lsp_definitions = {
 						initial_mode = "normal",
 					},
+					oldfiles = {
+						initial_mode = "normal",
+					},
 				},
 				extensions = {
 					file_browser = {
@@ -79,6 +82,7 @@ return {
 			pcall(require("telescope").load_extension, "media_files")
 			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("remote-sshfs")
+			require("telescope").load_extension("emoji")
 		end,
 	},
 
@@ -86,5 +90,10 @@ return {
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
+
+	-- Emoji
+	{
+		"xiyaowong/telescope-emoji.nvim",
 	},
 }

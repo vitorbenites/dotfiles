@@ -51,6 +51,7 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "📝 > New File", ":lua Create_file()<CR>"),
 			dashboard.button("f", "📁 > File Manager", ":Telescope file_browser path=%:p:h select_buffer=true<CR>"),
+			dashboard.button("o", "📜 > Old File", require("telescope.builtin").oldfiles),
 			dashboard.button("w", "📖 > Wiki", ":lua Open_Wiki()<CR>"),
 			dashboard.button("s", "💻 > SSH", ":RemoteSSHFSConnect<CR>"),
 			dashboard.button("c", "🔧 > Config Directory", ":lua Open_config()<CR>"),

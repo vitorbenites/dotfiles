@@ -8,6 +8,9 @@ PATH=$PATH:$GOPATH/bin
 # Variável de ambiente do editor
 export EDITOR="/usr/bin/nvim"
 
+# Cores do terminal
+TERM=xterm-256color
+
 # Alias
 alias nv='$EDITOR'
 alias cl='clear; fastfetch'
@@ -15,11 +18,12 @@ alias clc='clear'
 alias ls='lsd'
 alias ll='lsd -lh'
 alias lll='lsd -lha'
-alias upd='paru; flatpak update'
+alias upd='yay; flatpak update'
 alias grep='grep --color'
 alias cd='cd >/dev/null'
 alias hm='cd ~'
 alias doc='cd ~/Documentos'
+alias ssh='TERM=xterm-256color ssh'
 alias mx='cmatrix'
 alias tempo='curl wttr.in'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
@@ -48,6 +52,7 @@ fastfetch
 # Haskell
 # [ -f "/home/vitor/.ghcup/env" ] && source "/home/vitor/.ghcup/env" # ghcup-env
 
+# Seção do FuzzyFinder
 eval "$(fzf --bash)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -59,6 +64,46 @@ _fzf_compgen_path(){
 
 _fzf_compgen_dir(){
 	fd --type=d --hidden . "$1"
+}
+
+# Funções 
+cls() {
+	echo "========================================================="
+	echo "============ Docker Containers (Application) ============"
+	echo "========================================================="
+	if [[ $(docker ps -a | wc -l) -gt 1 ]]; then
+		lsdocker
+	else
+		echo "Nenhum container Docker instanciado."
+	fi
+	echo ""
+	echo "========================================================="
+	echo "=============== Incus Instances (System) ================"
+	echo "========================================================="
+	if [[ $(incus list | wc -l) -gt 3 ]]; then
+		incus list
+	else 
+		echo "Nenhuma instância Incus."
+	fi
+}
+
+cimg(){
+	echo "========================================================="
+	echo "============== Docker Images (Application) =============="
+	echo "========================================================="
+	echo ""
+	docker image ls
+	echo ""
+	echo "========================================================="
+	echo "================ Incus Images (System) =================="
+	echo "========================================================="
+	incus image list
+}
+
+lsdocker(){
+	VERTICAL="\nID\t{{.ID}}\nImage\t{{.Image}}\nCommand\t{{.Command}}\nCreated\t{{.RunningFor}}\nStatus\t{{.Status}}\nPorts\t{{.Ports}}\nNames\t{{.Names}}\n"
+
+	docker container ls --all --format=$VERTICAL
 }
 
 # Starship
