@@ -11,6 +11,10 @@ export EDITOR="/usr/bin/nvim"
 # Cores do terminal
 TERM=xterm-256color
 
+# Key-bindings do ATAC
+export ATAC_KEY_BINDINGS=/home/vitor/.config/atac/keys.toml
+export ATAC_THEME=/home/vitor/.config/atac/theme.toml
+
 # Alias
 alias nv='$EDITOR'
 alias cl='clear; fastfetch'
