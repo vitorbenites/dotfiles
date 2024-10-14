@@ -26,7 +26,7 @@ foreground = "0xd4be98"
 shape = "Block"
 
 [font]
-size = 13
+size = 12
 
 [font.normal]
 # family = "JetBrainsMono Nerd Font"
@@ -38,6 +38,6 @@ action = "ToggleFullscreen"
 key = "F11"
 
 [window]
-decorations = "none"
+decorations = "None"
 opacity = 0.9
 startup_mode = "Maximized"

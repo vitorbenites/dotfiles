@@ -40,6 +40,7 @@ return {
 		function Open_Wiki()
 			-- Função para ir para a wiki
 			local wiki_path = "/home/vitor/Documentos/Wiki"
+			vim.cmd("cd " .. wiki_path)
 			vim.cmd("Telescope file_browser path=" .. wiki_path .. " select_buffer=true")
 		end
 

@@ -2,8 +2,7 @@
 # Copia sim comédia
 # Variável PATH
 export GOPATH=$HOME/go
-PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script
-PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script:/home/vitor/.local/bin:$GOPATH/bin
 
 # Variável de ambiente do editor
 export EDITOR="/usr/bin/nvim"
@@ -106,6 +105,16 @@ lsdocker(){
 	VERTICAL="\nID\t{{.ID}}\nImage\t{{.Image}}\nCommand\t{{.Command}}\nCreated\t{{.RunningFor}}\nStatus\t{{.Status}}\nPorts\t{{.Ports}}\nNames\t{{.Names}}\n"
 
 	docker container ls --all --format=$VERTICAL
+}
+
+vicd()
+{
+    local dst="$(command vifm --choose-dir - "$@")"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
 }
 
 # Starship
