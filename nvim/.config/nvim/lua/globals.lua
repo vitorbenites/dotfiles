@@ -83,7 +83,7 @@ vim.loader.enable()
 
 -- Definição de leader key
 vim.g.mapleader = "ç"
-vim.g.maplocalleader = "ç"
+vim.g.maplocalleader = "\\"
 
 -- Abreviações
 vim.cmd([[

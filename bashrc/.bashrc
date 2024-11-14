@@ -8,11 +8,14 @@ export PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Do
 export EDITOR="/usr/bin/nvim"
 
 # Cores do terminal
-TERM=xterm-256color
+# TERM=tmux-256color
 
 # Key-bindings do ATAC
 export ATAC_KEY_BINDINGS=/home/vitor/.config/atac/keys.toml
 export ATAC_THEME=/home/vitor/.config/atac/theme.toml
+
+# MANPAGER
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Alias
 alias nv='$EDITOR'
@@ -35,14 +38,12 @@ alias free='free -h'
 alias bashrc='$EDITOR ~/.bashrc'
 alias ala='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias chrome='google-chrome-stable'
-alias fman='compgen -c | fzf | xargs man'
-alias ftldr='compgen -c | fzf | xargs tldr'
 alias zat='zathura'
 alias ufms='vifm ~/Documentos/SI/SISTINF_6/'
 alias calendario='dialog --calendar "Calendário" 0 0 $(date +%d) $(date +%m) $(date +%Y); clear; fastfetch'
 alias lzg='lazygit'
 
-# Executar o tmux ao iniciar o terminal (não abrir um novo painel)
+#Executar o tmux ao iniciar o terminal (não abrir um novo painel)
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	exec tmux
 fi

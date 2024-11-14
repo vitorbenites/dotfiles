@@ -23,15 +23,16 @@ return {
 			-- Table dos servidores
 			local servers = {
 				clangd = {},
-				tsserver = {},
 				marksman = {},
 				jdtls = {},
 				bashls = {},
 				rust_analyzer = {},
 				gopls = {},
-				pylsp = {},
+				-- pylsp = {},
+				pyright = {},
 				lua_ls = {},
 				jsonls = {},
+				texlab = {},
 			}
 
 			-- Setup neovim lua
