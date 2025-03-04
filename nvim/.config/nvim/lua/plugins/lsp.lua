@@ -28,7 +28,6 @@ return {
 				bashls = {},
 				rust_analyzer = {},
 				gopls = {},
-				-- pylsp = {},
 				pyright = {},
 				lua_ls = {},
 				jsonls = {},

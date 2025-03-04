@@ -67,7 +67,6 @@ return {
 			dashboard.button("w", "📖 > Wiki", ":lua Open_Wiki()<CR>"),
 			dashboard.button("p", "🛠️ > Projects", ":lua Open_projects()<CR>"),
 			dashboard.button("u", "🎓 > UFMS", ":lua Open_ufms()<CR>"),
-			dashboard.button("o", "📜 > Recent Files", require("telescope.builtin").oldfiles),
 			dashboard.button("c", "🔧 > Config Directory", ":lua Open_config()<CR>"),
 			dashboard.button("s", "💻 > SSH", ":RemoteSSHFSConnect<CR>"),
 			dashboard.button("q", "❌ > Quit", ":q<CR>"),

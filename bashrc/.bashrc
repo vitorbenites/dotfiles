@@ -9,13 +9,15 @@ export EDITOR="/usr/bin/nvim"
 
 # Cores do terminal
 # TERM=tmux-256color
+# export TERM="xterm"
 
 # Key-bindings do ATAC
 export ATAC_KEY_BINDINGS=/home/vitor/.config/atac/keys.toml
 export ATAC_THEME=/home/vitor/.config/atac/theme.toml
 
 # MANPAGER
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER="nvim +Man!"
+export MANWIDTH=100
 
 # Alias
 alias nv='$EDITOR'
@@ -34,7 +36,7 @@ alias mx='cmatrix'
 alias pipes='pipes.sh'
 alias tempo='curl wttr.in'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-alias free='free -h'
+# alias free='free -h'
 alias bashrc='$EDITOR ~/.bashrc'
 alias ala='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias chrome='google-chrome-stable'
@@ -120,3 +122,5 @@ vicd()
 
 # Starship
 eval "$(starship init bash)"
+
+source /home/vitor/.config/broot/launcher/bash/br

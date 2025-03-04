@@ -1,3 +1,5 @@
+general.live_config_reload = true
+
 [colors.bright]
 black = "0x3c3836"
 blue = "0x7daea3"
@@ -26,7 +28,7 @@ foreground = "0xd4be98"
 shape = "Block"
 
 [font]
-size = 12
+size = 13
 
 [font.normal]
 # family = "JetBrainsMono Nerd Font"
