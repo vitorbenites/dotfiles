@@ -24,14 +24,14 @@ return {
 			local servers = {
 				clangd = {},
 				marksman = {},
-				jdtls = {},
-				bashls = {},
+				-- jdtls = {},
+				-- bashls = {},
 				rust_analyzer = {},
-				gopls = {},
-				pyright = {},
+				-- gopls = {},
+				-- pyright = {},
 				lua_ls = {},
-				jsonls = {},
-				texlab = {},
+				-- jsonls = {},
+				-- texlab = {},
 			}
 
 			-- Setup neovim lua
@@ -48,16 +48,16 @@ return {
 				ensure_installed = vim.tbl_keys(servers),
 			})
 
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-						settings = servers[server_name],
-						filetypes = (servers[server_name] or {}).filetypes,
-					})
-				end,
-			})
+			-- mason_lspconfig.setup_handlers({
+			-- 	function(server_name)
+			-- 		require("lspconfig")[server_name].setup({
+			-- 			capabilities = capabilities,
+			-- 			on_attach = on_attach,
+			-- 			settings = servers[server_name],
+			-- 			filetypes = (servers[server_name] or {}).filetypes,
+			-- 		})
+			-- 	end,
+			-- })
 		end,
 	},
 }

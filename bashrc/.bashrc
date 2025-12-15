@@ -11,17 +11,13 @@ export EDITOR="/usr/bin/nvim"
 # TERM=tmux-256color
 # export TERM="xterm"
 
-# Key-bindings do ATAC
-export ATAC_KEY_BINDINGS=/home/vitor/.config/atac/keys.toml
-export ATAC_THEME=/home/vitor/.config/atac/theme.toml
-
 # MANPAGER
 export MANPAGER="nvim +Man!"
 export MANWIDTH=100
 
 # Alias
 alias nv='$EDITOR'
-alias cl='clear; fastfetch'
+alias cl='clear; fastfetch -l small --logo-padding-left 2 --logo-padding-top 2 --logo-padding-right 2'
 alias clc='clear'
 alias ls='lsd'
 alias ll='lsd -lh'
@@ -36,7 +32,6 @@ alias mx='cmatrix'
 alias pipes='pipes.sh'
 alias tempo='curl wttr.in'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-# alias free='free -h'
 alias bashrc='$EDITOR ~/.bashrc'
 alias ala='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias chrome='google-chrome-stable'
@@ -44,6 +39,8 @@ alias zat='zathura'
 alias ufms='vifm ~/Documentos/SI/SISTINF_6/'
 alias calendario='dialog --calendar "Calendário" 0 0 $(date +%d) $(date +%m) $(date +%Y); clear; fastfetch'
 alias lzg='lazygit'
+alias tcc='cd ~/Documentos/TCC/bsfs/'
+alias amdtop='amdgpu_top'
 
 #Executar o tmux ao iniciar o terminal (não abrir um novo painel)
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -51,7 +48,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # Fastfetch pelo estilo
-fastfetch
+fastfetch -l small --logo-padding-left 2 --logo-padding-top 2 --logo-padding-right 2
 
 # Haskell
 # [ -f "/home/vitor/.ghcup/env" ] && source "/home/vitor/.ghcup/env" # ghcup-env
@@ -81,14 +78,14 @@ cls() {
 		echo "Nenhum container Docker instanciado."
 	fi
 	echo ""
-	echo "========================================================="
-	echo "=============== Incus Instances (System) ================"
-	echo "========================================================="
-	if [[ $(incus list | wc -l) -gt 3 ]]; then
-		incus list
-	else 
-		echo "Nenhuma instância Incus."
-	fi
+	# echo "========================================================="
+	# echo "=============== Incus Instances (System) ================"
+	# echo "========================================================="
+	# if [[ $(incus list | wc -l) -gt 3 ]]; then
+	# 	incus list
+	# else 
+	# 	echo "Nenhuma instância Incus."
+	# fi
 }
 
 cimg(){
@@ -97,11 +94,11 @@ cimg(){
 	echo "========================================================="
 	echo ""
 	docker image ls
-	echo ""
-	echo "========================================================="
-	echo "================ Incus Images (System) =================="
-	echo "========================================================="
-	incus image list
+	# echo ""
+	# echo "========================================================="
+	# echo "================ Incus Images (System) =================="
+	# echo "========================================================="
+	# incus image list
 }
 
 lsdocker(){
@@ -122,5 +119,3 @@ vicd()
 
 # Starship
 eval "$(starship init bash)"
-
-source /home/vitor/.config/broot/launcher/bash/br

@@ -81,7 +81,6 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "media_files")
 			require("telescope").load_extension("file_browser")
-			require("telescope").load_extension("remote-sshfs")
 			require("telescope").load_extension("emoji")
 		end,
 	},
