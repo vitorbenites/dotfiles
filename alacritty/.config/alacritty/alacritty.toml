@@ -28,7 +28,7 @@ foreground = "0xd4be98"
 shape = "Block"
 
 [font]
-size = 13
+size = 17
 
 [font.normal]
 # family = "JetBrainsMono Nerd Font"

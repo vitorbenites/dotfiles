@@ -160,3 +160,11 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo.formatprg = "jq"
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+    vim.wo.conceallevel = 0 -- desativa conceal, que é onde o bug se manifesta
+  end,
+})

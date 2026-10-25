@@ -1,5 +1,6 @@
 # Bashrc do Vitin
 # Copia sim comédia
+
 # Variável PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:/home/vitor/.cargo/bin:/home/vitor/wiki_scripts:/home/vitor/Documentos/shell_script:/home/vitor/.local/bin:$GOPATH/bin
@@ -41,13 +42,14 @@ alias calendario='dialog --calendar "Calendário" 0 0 $(date +%d) $(date +%m) $(
 alias lzg='lazygit'
 alias tcc='cd ~/Documentos/TCC/bsfs/'
 alias amdtop='amdgpu_top'
+alias vpn='sudo openfortivpn -c /home/vitor/vpn.config'
 
 #Executar o tmux ao iniciar o terminal (não abrir um novo painel)
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	exec tmux
 fi
 
-# Fastfetch pelo estilo
+# Fastfetch
 fastfetch -l small --logo-padding-left 2 --logo-padding-top 2 --logo-padding-right 2
 
 # Haskell
@@ -118,4 +120,9 @@ vicd()
 }
 
 # Starship
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
+# PS1='(\[\e[38;5;150;1m\]\A\[\e[0m\])-(\[\e[38;5;66;1m\]\u\[\e[0m\])-(\[\e[38;5;244;1m\]\w\[\e[0m\])\n\[\e[33;1m\]>\[\e[0m\] '
+PS1='(\[\e[38;5;66;1m\]\u\[\e[0m\])-(\[\e[38;5;244;1m\]\w\[\e[0m\])\n\[\e[33;1m\]>\[\e[0m\] '
+
+# opencode
+export PATH=/home/vitor/.opencode/bin:$PATH
